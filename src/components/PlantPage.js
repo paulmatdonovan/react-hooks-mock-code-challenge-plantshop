@@ -12,11 +12,14 @@ function PlantPage() {
       .then((plantsArray) => setPlants(plantsArray))
   }, [])
 
-
+  function handleAddPlant(newPlant) {
+    const updatedPlantsArray = [...plants, newPlant];
+    setPlants(updatedPlantsArray)
+  }
 
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm onAddPlant={handleAddPlant} />
       <Search />
       <PlantList plants={plants} />
     </main>
