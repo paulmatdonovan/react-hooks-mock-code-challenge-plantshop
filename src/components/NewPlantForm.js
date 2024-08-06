@@ -7,9 +7,9 @@ function NewPlantForm({ onAddPlant }) {
 
 
   function handleSubmit(e) {
-    //make the POST
     e.preventDefault();
-
+    //make the POST
+    //add the new plant
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
@@ -20,11 +20,10 @@ function NewPlantForm({ onAddPlant }) {
         image: image,
         price: price,
       })
-
     })
       .then((r) => r.json())
       .then((newPlant) => onAddPlant(newPlant));
-    //add plant to page -uses a callback fuctnion from the aprent
+    //add plant to page - uses a callback fuctnion from the parent (PlantPage)
   }
 
   return (
